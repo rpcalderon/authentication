@@ -14,7 +14,7 @@ node index.js
 
 ## Documentation
 
-[Node Authentication API Documentation](nodeauthentication.docs.apiary.io)
+[Node Authentication API Documentation](http://nodeauthentication.docs.apiary.io)
 
 ### Prerequisites
 
