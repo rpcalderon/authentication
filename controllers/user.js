@@ -80,5 +80,26 @@ module.exports = {
         res.status(status).send(result);
       }
     });
-  }
+  },
+  getOne: (req, res) => {
+    const userId = parseInt(req.params.userId);
+    console.log('userId', userId);
+    let result = {};
+    let status = 200;
+
+    db.user.findOne({ where: { userId: userId } })
+      .then(user => {
+        // console.log('user',user.get({plain: true}))
+        if (user) {
+          result.status = status;
+          result.result = user.get({ plain: true });
+          res.status(status).send(result);
+        } else {
+          status = 404;
+          result.status = status;
+          result.error = 'User Not Found';
+          res.status(status).send(result);
+        }
+      })
+  },
 }

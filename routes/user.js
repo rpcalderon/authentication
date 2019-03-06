@@ -1,4 +1,5 @@
 const controller = require('../controllers/user');
+const validateToken = require('./../utils').validateToken;
 
 module.exports = (router) => {
   router.route('/register')
@@ -6,4 +7,8 @@ module.exports = (router) => {
 
   router.route('/login')
     .post(controller.login);
+
+  router.route('/user/:userId')
+    .get(validateToken, controller.getOne);
+    // .put(validateToken, controller.edit);
 }
