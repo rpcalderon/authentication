@@ -102,4 +102,68 @@ module.exports = {
         }
       })
   },
+  edit: (req, res, next) => {
+    let result = {};
+    let status = 200;
+    let userId = req.params.userId,
+        userFirstName = req.body.userFirstName,
+        userLastName = req.body.userLastName,
+        userEmail = req.body.userEmail,
+        userPassword = req.body.userPassword;
+
+    if (req.body.userPassword) {
+      const userPassword = req.body.userPassword;
+
+      bcrypt.hash(userPassword, saltRounds, function (err, hash) {
+        db.user.update(
+          {
+            userFirstName: userFirstName,
+            userLastName: userLastName,
+            userEmail: userEmail,
+            userPassword: userPassword
+          },
+          { where: { userId: userId } }
+          ).then((data) => {
+            db.user.findOne({ where: { userId: userId } })
+              .then(user => {
+                if (user) {
+                  result.status = status;
+                  result.result = user.get({ plain: true });
+                  res.status(status).send(result);
+                } else {
+                  status = 404;
+                  result.status = status;
+                  result.error = 'User Not Updated';
+                  res.status(status).send(result);
+                }
+              })
+          })
+        });
+    } else {
+      db.user.update(
+        {
+          userFirstName: userFirstName,
+          userLastName: userLastName,
+          userEmail: userEmail
+        },
+        { where: { userId: userId } }
+      )
+      .then((data) => {
+        // console.log('result', data);
+        db.user.findOne({ where: { userId: userId } })
+          .then(user => {
+            if (user) {
+              result.status = status;
+              result.result = user.get({ plain: true });
+              res.status(status).send(result);
+            } else {
+              status = 404;
+              result.status = status;
+              result.error = 'User Not Updated';
+              res.status(status).send(result);
+            }
+          })
+      })
+    }
+  }
 }

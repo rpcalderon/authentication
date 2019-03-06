@@ -9,6 +9,6 @@ module.exports = (router) => {
     .post(controller.login);
 
   router.route('/user/:userId')
-    .get(validateToken, controller.getOne);
-    // .put(validateToken, controller.edit);
+    .get(validateToken, controller.getOne)
+    .put(validateToken, controller.edit);
 }
