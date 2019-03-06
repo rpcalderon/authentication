@@ -1,0 +1,19 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "description": "Simple authentication system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpcalderon/authentication.git"
+  },
+  "author": "Rosita Calderon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpcalderon/authentication/issues"
+  },
+  "homepage": "https://github.com/rpcalderon/authentication#readme"
+}
