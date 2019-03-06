@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/rpcalderon/authentication/issues"
   },
-  "homepage": "https://github.com/rpcalderon/authentication#readme"
+  "homepage": "https://github.com/rpcalderon/authentication#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
 }
