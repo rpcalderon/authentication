@@ -18,13 +18,13 @@ node index.js
 
 ### Prerequisites
 
-Use with Node version 8.11.3
+Built with Node version 8.11.3
 
 ## Built With
 
-- [NodeJS](http://www.nodejs.org/) - The web framework used
-- [Express](http://expressjs.com/) - Dependency Management
+- [NodeJS](http://www.nodejs.org/)
+- [Express](http://expressjs.com/)
 
 ## Authors
 
-- **Rosita Calderon** - _Initial work_ - [RPCalderon](https://github.com/rpcalderon)
+- **Rosita Calderon** - [RPCalderon](https://github.com/rpcalderon)
